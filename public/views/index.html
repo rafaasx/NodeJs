@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - My Express Application</title>
+    <link href="../public/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="../public/stylesheets/style.css" rel="stylesheet" />
+    <link href="../public/stylesheets/taskman.css" rel="stylesheet"/>
+    <script src="../public/javascripts/angular.js"></script>
+    <script src="../public/javascripts/jquery-1.10.2.js"></script>
+    <script src="../public/javascripts/bootstrap.js"></script>
+    <script src="../public/javascripts/respond.js"></script>
+    <script src="../public/javascripts/modernizr-2.6.2.js"></script>
+    <script src="../public/controllers/indexController.js"></script>
+</head>
+<body>
+    <div class="container body-content">
+        <h2>Tarefas</h2>
+
+        <div ng-app="myApp">
+            <div class="widget-box" id="recent-box" ng-controller="tasksController as ctr">
+                <div class="widget-header header-color-blue">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4 class="bigger lighter"><i class="glyphicon glyphicon-align-justify"></i> Gerenciador de Tarefas</h4>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control search header-elements-margin" type="text" placeholder="Filter Tasks" ng-model="filtro" />
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-body ">
+                    <form class="add-task" id="newTaskForm">
+                        <div class="form-actions">
+                            <div class="input-group">
+                                <input type="text" class="form-control ng-pristine ng-valid" name="comment" ng-model="tarefa.task" placeholder="Adicionar Tarefa" ng-focus="addNewClicked">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" ng-click="addTask(tarefa.task)"><i class="glyphicon glyphicon-plus"></i>Add New Task</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="task">
+                        <label class="checkbox" ng-repeat="tarefa in tasks | filter:{task:filtro}" ng-click="toggledone(tarefa)">
+                            <input type="checkbox" ng-model="tarefa.done" />
+                            <span>[{{tarefa.id}}] {{tarefa.task}} </span>
+                            <a ng-click="deleteTask(tarefa)" class="pull-right"><i class="glyphicon glyphicon-trash"></i></a>
+
+                        </label>
+                    </div>
+                </div>
+                <h2>"{{tasks}}"</h2>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p align="center">&copy; - Minhas Tarefas</p>
+    </footer>
+</body>
+</html>
