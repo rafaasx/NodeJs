@@ -1,5 +1,4 @@
 var db = require('../Db/sqlite');
-var jsonSql = require('json-sql')();
 
 function TaskModel() {
     try {
@@ -20,9 +19,7 @@ TaskModel.prototype.create = function(data, callback) {
         var result;
         db.run("INSERT INTO tasks (task, done) VALUES ('" + data.task + "', " + parseInt(data.done) + ")",
         function() {
-            console.log('entrou');
             data.id = this.lastID;
-            console.log(JSON.stringify(data));
             callback(undefined, data);
         });
     } catch (e) {
