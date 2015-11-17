@@ -1,7 +1,7 @@
 var request = require('supertest'),
     assert  = require('assert'),
     app     = require('../app'),
-    db      = require('../Db/mongo'),
+    db      = require('../Db/sqlite3'),
     _id;
 
 
