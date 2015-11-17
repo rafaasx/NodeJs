@@ -1,12 +1,12 @@
 # NodeJs</br>
 Projetos utilizando NodeJS</br></br>
-Backend</br>
+* Backend</br>
 - Node.JS</br>
-Frontend</br>
+* Frontend</br>
 - AngularJs</br>
-Database</br>
+* Database</br>
 - Sqlite3</br>
-Requisitos </br>
+* Requisitos </br>
 - Node.Js x64 ("Não funciona com o node x86 pois existe um bug com o módulo SQLite3")</br>
 <ul>Instalação
     <li>Abrir prompt de comando</li>
