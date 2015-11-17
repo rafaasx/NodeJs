@@ -1,7 +1,7 @@
 var request = require('supertest'),
     assert  = require('assert'),
     app     = require('../app'),
-    db      = require('../Db/sqlite3'),
+    db      = require('../Db/sqlite'),
     _id;
 
 
